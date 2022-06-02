@@ -9,9 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     name: "Build and push images"
     env:
-      RELEASE_NAME: "${{ env.GITHUB_REF_NAME }}"
+      RELEASE_NAME: "${{ github.event.release.tag_name }}"
       IMAGE_REPO: "ghcr.io/wph95/demo"
-      TEST: "${{ github.event.release.tag_name }}"
 
     steps:
       - uses: actions/checkout@v3
