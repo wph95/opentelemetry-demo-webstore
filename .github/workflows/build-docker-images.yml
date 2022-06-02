@@ -10,6 +10,7 @@ jobs:
     name: "Build and push images"
     env:
       RELEASE_NAME: "${{ github.release.tag_name }}"
+      IMAGE_REPO: "ghcr.io/wph95/demo"
 
     steps:
       - uses: actions/checkout@v3
