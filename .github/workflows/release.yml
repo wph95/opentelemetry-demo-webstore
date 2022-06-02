@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Log in to the Container registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -29,5 +29,3 @@ jobs:
         run: make build-docker-images
       - name: push docker image
         run: make push-docker-images
-        env:
-          COMPOSE_PARALLEL_LIMIT: "2"
