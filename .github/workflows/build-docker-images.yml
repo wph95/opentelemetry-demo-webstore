@@ -8,6 +8,9 @@ jobs:
   build_and_push_images:
     runs-on: ubuntu-latest
     name: "Build and push images"
+    permissions:
+      contents: read
+      packages: write
     env:
       RELEASE_NAME: "${{ github.event.release.tag_name }}"
       IMAGE_REPO: "ghcr.io/wph95/demo"
@@ -18,6 +21,12 @@ jobs:
           fetch-depth: 0
       - name: debug
         run: env
+      - name: Log in to the Container registry
+        uses: docker/login-action
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: build docker image
         run: make build-docker-images
       - name: push docker image
