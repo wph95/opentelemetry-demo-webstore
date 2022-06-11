@@ -30,12 +30,18 @@ cd opentelemetry-demo-webstore/
 
 ### Run Docker Compose
 
-- Start the demo (It can take ~20min the first time the command is executed as
-all the images will be build):
+- Start the demo 
+  - use built image
+    ```shell
+    docker compose up --no-build
+    ```
+  - local build (It can take ~20min the first time the command is executed as
+  all the images will be build):
+    ```shell
+    docker compose up
+    ```
 
-```shell
-docker compose up
-```
+
 
 ### Verify the Webstore & the Telemetry
 
