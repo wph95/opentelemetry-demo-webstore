@@ -42,18 +42,18 @@ jobs:
         env:
           IMAGE_NAME: "ghcr.io/wph95/demo"
 
-      - name: build dockerhub docker image
-        run: make build-docker-images
-        env:
-          IMAGE_NAME: "wph95/otelbot/demo"
-
       - name: push ghcr image
         run: make push-docker-images
         env:
           IMAGE_NAME: "ghcr.io/wph95/demo"
 
+      - name: build dockerhub docker image
+        run: make build-docker-images
+        env:
+          IMAGE_NAME: "wph95/otelbot_demo"
+
       - name: push dockerhub image
         run: make push-docker-images
         env:
-          IMAGE_NAME: "wph95/otelbot/demo"
+          IMAGE_NAME: "wph95/otelbot_demo"
 
