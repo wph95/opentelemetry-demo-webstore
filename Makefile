@@ -61,9 +61,11 @@ install-tools: $(MISSPELL)
 .PHONY: build-and-push-dockerhub
 build-and-push-dockerhub:
 	docker compose --env-file .dockerhub.env -f docker-compose.yml build
+	docker compose --env-file .dockerhub.env -f docker-compose.yml pusd
 
 .PHONY: build-and-push-ghcr
 build-and-push-ghcr:
+	docker compose --env-file .ghcr.env -f docker-compose.yml build
 	docker compose --env-file .ghcr.env -f docker-compose.yml push
 
 .PHONY: build-env-file
