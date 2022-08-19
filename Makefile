@@ -60,8 +60,10 @@ install-tools: $(MISSPELL)
 
 .PHONY: build-docker-images
 build-docker-images:
+	env
 	docker compose -f docker-compose.yml build
 
 .PHONY: push-docker-images
 push-docker-images:
+	env
 	docker compose -f docker-compose.yml push
